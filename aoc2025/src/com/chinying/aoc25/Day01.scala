@@ -44,12 +44,15 @@ L82""".split("\n").map(_.trim).toList
     var acc = start
     var pw = 0
     input.foreach(line => {
-      var parsed = parse(line)
-      val next = acc + parsed
-      val (quotient, remainder) = (next / 100, floorMod(next, 100))
-      pw += Math.abs(quotient)
-      println(s"next: $next, quotient: $quotient, remainder: $remainder, pw: $pw")
-      acc = remainder
+      val parsed = parse(line)
+      // scala's / operator truncates towards 0, hence need to handle differently for left and right movements
+      val zeros = if (parsed > 0) {
+        Math.floorDiv(acc + parsed, 100)
+      } else {
+        Math.floorDiv(acc - 1, 100) - Math.floorDiv(acc + parsed - 1, 100)
+      }
+      pw += zeros
+      acc = floorMod(acc + parsed, 100)
     })
     pw // 6889 too high
   }
