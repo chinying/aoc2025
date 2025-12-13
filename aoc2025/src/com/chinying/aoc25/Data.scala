@@ -1,4 +1,4 @@
-package com.chinying.aoc24
+package com.chinying.aoc25
 
 import io.Source
 

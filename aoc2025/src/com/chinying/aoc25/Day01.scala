@@ -4,17 +4,17 @@ import scala.collection.mutable.{ArrayBuffer, HashMap}
 import java.lang.Math.floorMod
 
 object Day01 {
-  // val input = io.Source.fromResource("day01.txt").getLines.toList
-  val input = """L68
-L30
-R48
-L5
-R60
-L55
-L1
-L99
-R14
-L82""".split("\n").map(_.trim).toList
+  val input = io.Source.fromResource("day01.txt").getLines.toList
+//   val input = """L68
+// L30
+// R48
+// L5
+// R60
+// L55
+// L1
+// L99
+// R14
+// L82""".split("\n").map(_.trim).toList
 
   // def parse(line: String) = line.split("\\s+")
   def parse(line: String): Int = {
